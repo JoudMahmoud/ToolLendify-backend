@@ -11,7 +11,7 @@ namespace ToolLendify.Domain.Entities
 	public class User:IdentityUser
 	{
 		public string? ImageUrl { get; set; }
-		public string? Address { get; set; }
+		public Address? Address { get; set; }
 		public ICollection<Notification> Notifications { get; set; }
 		public ICollection<Review> Reviews { get; set; }
 		public ICollection<Payment> Payments { get; set; }	

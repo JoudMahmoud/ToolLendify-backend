@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GAPzHI0gSDQ=",
+  "dgSpecHash": "Pe3P9wo2j1E=",
   "success": true,
-  "projectFilePath": "E:\\iti\\0-project\\ToolLendify\\14-9-2024\\ToolLendify\\ToolLendify-Backend\\ToolLendify.Application\\ToolLendify.Application.csproj",
+  "projectFilePath": "E:\\iti\\0-project\\ToolLendify\\ToolLendify-separate-projects\\ToolLendify-Backend\\ToolLendify.Application\\ToolLendify.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kimo Store\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Kimo Store\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\8.0.7\\microsoft.aspnetcore.cryptography.internal.8.0.7.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "txaoejHZuPU=",
+  "dgSpecHash": "3uSYTI6EgyM=",
   "success": true,
-  "projectFilePath": "E:\\iti\\0-project\\ToolLendify\\14-9-2024\\ToolLendify\\ToolLendify-Backend\\ToolLendify.Presentation\\ToolLendify.Presentation.csproj",
+  "projectFilePath": "E:\\iti\\0-project\\ToolLendify\\ToolLendify-separate-projects\\ToolLendify-Backend\\ToolLendify.Presentation\\ToolLendify.Presentation.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kimo Store\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Kimo Store\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

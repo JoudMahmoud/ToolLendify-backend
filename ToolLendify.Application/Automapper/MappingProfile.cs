@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
@@ -17,22 +20,33 @@ namespace ToolLendify.Application.Automapper
 			//CreateMap<Source,destination>
 
 			CreateMap<Tool, toolDto>()
-				.ForMember(d => d.Model, o => o.MapFrom(t => t.Model))
-				.ForMember(d => d.CategoryName, o => o.MapFrom(t => t.Category.Name));
+				.ForMember(d => d.CategoryName, o => o.MapFrom(t => t.Category.Name))
+				.ForMember(d => d.ownerName, opt => opt.MapFrom(src => src.Owner.UserName));
 
-			//CreateMap<List<Tool>, List<toolDto>>();
 
 			CreateMap<toolDto, Tool>()
-				.ForMember(t => t.Model, o => o.MapFrom(d => d.Model))
-				.ForMember(t => t.OwnerID, o => o.MapFrom(d => d.OwnerID))
-				.ForMember(t => t.CategoryID, opt => opt.Ignore())
-				.ForMember(t => t.Category, opt => opt.Ignore())
+				.ForMember(t => t.CategoryID, opt => opt.Ignore()) //why here make id Ignore can you explain this for me
+				.ForMember(t => t.Category, opt => opt.Ignore()) //and here to 
 				.AfterMap((dto, tool) => {
 					if (!string.IsNullOrEmpty(dto.CategoryName)) {
 						tool.Category = new Category { Name = dto.CategoryName };
 					}
 				});
-				
+
+			CreateMap<categoryDto, Category>();
+			CreateMap<Category, categoryDto>();
+
+			CreateMap<Owner, OwnerDto>()
+				.ForMember(d => d.Id, o => o.MapFrom(s => s.Id))
+				.ForMember(d => d.Name, o => o.MapFrom(s => s.UserName))
+				.ForMember(d => d.ImageUrl, o => o.MapFrom(s => s.ImageUrl));
+			//Severity	Code	Description	Project	File	Line	Suppression State	Details	Error(active)  CS1061  'OwnerDto' does not contain a definition for 'Id' and no accessible extension method 'Id' accepting a first argument of type 'OwnerDto' could be found(are you missing a using directive or an assembly reference ?)	ToolLendify.Application E:\iti\0 - project\ToolLendify\ToolLendify - separate - projects\ToolLendify - Backend\ToolLendify.Application\Automapper\MappingProfile.cs 44
+
+
+			CreateMap<User, OwnerDto>()
+				.ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.UserName));
+
+			CreateMap<AddressDto, Address>();
 		}
 
 	}
