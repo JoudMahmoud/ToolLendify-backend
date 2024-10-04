@@ -14,10 +14,19 @@ namespace ToolLendify.Infrastructure.DataSeed
 			List<string> roles = new List<string> { "Administrator", "Client", "Owner" };
 			foreach(var role in roles)
 			{
-				if (!await roleManager.RoleExistsAsync(role))
-				{
-					await roleManager.CreateAsync(new IdentityRole(role));
-				}
+				 try
+        {
+            if (!await roleManager.RoleExistsAsync(role))
+            {
+                await roleManager.CreateAsync(new IdentityRole(role));
+            }
+        }
+        catch (Exception ex)
+        {
+            // Log the exception or handle it accordingly
+            Console.WriteLine($"Error seeding role '{role}': {ex.Message}");
+            // You can throw or continue based on your needs
+        }
 			}
 		}
 	}

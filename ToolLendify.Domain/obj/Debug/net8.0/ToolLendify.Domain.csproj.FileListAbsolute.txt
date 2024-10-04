@@ -36,3 +36,16 @@ E:\iti\0-project\ToolLendify\14-9-2024\ToolLendify\ToolLendify-Backend\ToolLendi
 E:\iti\0-project\ToolLendify\14-9-2024\ToolLendify\ToolLendify-Backend\ToolLendify.Domain\obj\Debug\net8.0\refint\ToolLendify.Domain.dll
 E:\iti\0-project\ToolLendify\14-9-2024\ToolLendify\ToolLendify-Backend\ToolLendify.Domain\obj\Debug\net8.0\ToolLendify.Domain.pdb
 E:\iti\0-project\ToolLendify\14-9-2024\ToolLendify\ToolLendify-Backend\ToolLendify.Domain\obj\Debug\net8.0\ref\ToolLendify.Domain.dll
+E:\iti\0-project\ToolLendify\ToolLendify-separate-projects\ToolLendify-Backend\ToolLendify.Domain\bin\Debug\net8.0\ToolLendify.Domain.deps.json
+E:\iti\0-project\ToolLendify\ToolLendify-separate-projects\ToolLendify-Backend\ToolLendify.Domain\bin\Debug\net8.0\ToolLendify.Domain.dll
+E:\iti\0-project\ToolLendify\ToolLendify-separate-projects\ToolLendify-Backend\ToolLendify.Domain\bin\Debug\net8.0\ToolLendify.Domain.pdb
+E:\iti\0-project\ToolLendify\ToolLendify-separate-projects\ToolLendify-Backend\ToolLendify.Domain\obj\Debug\net8.0\ToolLendify.Domain.csproj.AssemblyReference.cache
+E:\iti\0-project\ToolLendify\ToolLendify-separate-projects\ToolLendify-Backend\ToolLendify.Domain\obj\Debug\net8.0\ToolLendify.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\iti\0-project\ToolLendify\ToolLendify-separate-projects\ToolLendify-Backend\ToolLendify.Domain\obj\Debug\net8.0\ToolLendify.Domain.AssemblyInfoInputs.cache
+E:\iti\0-project\ToolLendify\ToolLendify-separate-projects\ToolLendify-Backend\ToolLendify.Domain\obj\Debug\net8.0\ToolLendify.Domain.AssemblyInfo.cs
+E:\iti\0-project\ToolLendify\ToolLendify-separate-projects\ToolLendify-Backend\ToolLendify.Domain\obj\Debug\net8.0\ToolLendify.Domain.csproj.CoreCompileInputs.cache
+E:\iti\0-project\ToolLendify\ToolLendify-separate-projects\ToolLendify-Backend\ToolLendify.Domain\obj\Debug\net8.0\ToolLendify.Domain.sourcelink.json
+E:\iti\0-project\ToolLendify\ToolLendify-separate-projects\ToolLendify-Backend\ToolLendify.Domain\obj\Debug\net8.0\ToolLendify.Domain.dll
+E:\iti\0-project\ToolLendify\ToolLendify-separate-projects\ToolLendify-Backend\ToolLendify.Domain\obj\Debug\net8.0\refint\ToolLendify.Domain.dll
+E:\iti\0-project\ToolLendify\ToolLendify-separate-projects\ToolLendify-Backend\ToolLendify.Domain\obj\Debug\net8.0\ToolLendify.Domain.pdb
+E:\iti\0-project\ToolLendify\ToolLendify-separate-projects\ToolLendify-Backend\ToolLendify.Domain\obj\Debug\net8.0\ref\ToolLendify.Domain.dll

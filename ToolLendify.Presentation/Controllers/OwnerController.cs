@@ -1,13 +1,10 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Metadata.Ecma335;
 using ToolLendify.Application.DTOs;
 using ToolLendify.Domain.Entities;
 using ToolLendify.Domain.Interfaces;
-using ToolLendify.Infrastructure.Repositories;
 
 namespace ToolLendify.Presentation.Controllers
 {

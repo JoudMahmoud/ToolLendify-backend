@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ToolLendify.Application.DTOs;
 using ToolLendify.Domain.Interfaces;
@@ -18,13 +17,13 @@ namespace ToolLendify.Presentation.Controllers
 			_mapper = mapper;
 		}
 		[HttpGet]
-		public async Task<ActionResult<IEnumerable<categoryDto>>> GetAllCategories() /*when i try to get categories from swagger don't intern this function what is issue in this */
+		public async Task<ActionResult<IEnumerable<CategoryDto>>> GetAllCategories() 
 		{
 			var categories = await _catRepo.getAllCategories();
 			if (categories.Count() == 0)
 			{
 				return NotFound();
-			}var categoriesDto = _mapper.Map<List<categoryDto>>(categories);
+			}var categoriesDto = _mapper.Map<List<CategoryDto>>(categories);
 			return Ok(categoriesDto);
 		}
 		

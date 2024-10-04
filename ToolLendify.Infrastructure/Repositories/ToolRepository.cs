@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +36,11 @@ namespace ToolLendify.Infrastructure.Repositories
 			
 			return await _dbcontext.Tools.FirstOrDefaultAsync(t=>t.Id == id);
 		}
+
+		public async Task<IEnumerable<Tool>> GetToolByName(string name)
+		{
+			return await _dbcontext.Tools.Where(t=>t.Name == name).ToListAsync();
+		}
 		public async Task<bool> updateTool(Tool updatedTool)
 		{
 			_dbcontext.Entry(updatedTool).State = EntityState.Modified;
@@ -47,6 +54,10 @@ namespace ToolLendify.Infrastructure.Repositories
 		public async Task<IEnumerable<Tool>> GetOwnerTools(string ownerId)
 		{
 			return await _dbcontext.Tools.Where(t=>t.OwnerID == ownerId).ToListAsync();
+		}
+		public async Task<IEnumerable<Tool>> GetAvailableTools()
+		{
+			return await _dbcontext.Tools.Where(t=>t.IsAvailable==true).ToListAsync();
 		}
 		public void Save()
 		{

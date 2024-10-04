@@ -28,18 +28,14 @@ namespace ToolLendify.Presentation
 			builder.Services.AddSwaggerGen();
 
 			//register AutoMapper
-			builder.Services.AddAutoMapper(typeof(Program).Assembly);
-
-			//confirure the http request pipeline
-			/*if (app.Environment.Isdevelopment())
-			{
-				app.UseDeveloperExceptionPage();
-			}*/
+			builder.Services.AddAutoMapper(typeof(MappingProfile));
+			//builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 			// Configure DbContext
 			builder.Services.AddDbContext<ToolLendifyDbContext>(options =>
 			{
-				options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+				options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
+				sqlOptions => sqlOptions.EnableRetryOnFailure());
 			});
 
 
@@ -86,7 +82,6 @@ namespace ToolLendify.Presentation
 
 			// Register custom services
 			builder.Services.AddScoped<RoleService>();
-			builder.Services.AddAutoMapper(typeof(MappingProfile));
 			builder.Services.AddScoped<IToolRepository, ToolRepository>();
 
 			builder.Services.AddCors(options =>
@@ -125,12 +120,9 @@ namespace ToolLendify.Presentation
 			}
 
 			app.UseCors("AllowSpecificOrigin");
-			//app.UserCors("AllowSpecificOrigin");
-
 			app.UseHttpsRedirection();
 			app.UseAuthentication();
 			app.UseAuthorization();
-
 
 			// Map controllers
 			app.MapControllers();

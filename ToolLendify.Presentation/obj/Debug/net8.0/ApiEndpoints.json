@@ -1,5 +1,26 @@
 [
   {
+    "ContainingType": "ToolLendify.Presentation.Controllers.AddressController",
+    "Method": "CreateAddress",
+    "RelativePath": "api/Address",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateAddress",
+        "Type": "ToolLendify.Application.DTOs.AddressDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ToolLendify.Presentation.Controllers.CategoryController",
     "Method": "GetAllCategories",
     "RelativePath": "api/Category",
@@ -9,7 +30,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[ToolLendify.Application.DTOs.categoryDto, ToolLendify.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ToolLendify.Application.DTOs.CategoryDto, ToolLendify.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -75,7 +96,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[ToolLendify.Application.DTOs.toolDto, ToolLendify.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ToolLendify.Application.DTOs.ToolDto, ToolLendify.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -95,13 +116,13 @@
     "Parameters": [
       {
         "Name": "addToolDto",
-        "Type": "ToolLendify.Application.DTOs.toolDto",
+        "Type": "ToolLendify.Application.DTOs.ToolDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "ToolLendify.Application.DTOs.toolDto",
+        "Type": "ToolLendify.Application.DTOs.ToolDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -126,13 +147,13 @@
       },
       {
         "Name": "toolToEdit",
-        "Type": "ToolLendify.Application.DTOs.toolDto",
+        "Type": "ToolLendify.Application.DTOs.ToolDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "ToolLendify.Application.DTOs.toolDto",
+        "Type": "ToolLendify.Application.DTOs.ToolDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -158,7 +179,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "ToolLendify.Application.DTOs.toolDto",
+        "Type": "ToolLendify.Application.DTOs.ToolDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -194,7 +215,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[ToolLendify.Application.DTOs.toolDto, ToolLendify.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ToolLendify.Application.DTOs.ToolDto, ToolLendify.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -220,7 +241,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[ToolLendify.Application.DTOs.toolDto, ToolLendify.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ToolLendify.Application.DTOs.ToolDto, ToolLendify.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -246,7 +267,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[ToolLendify.Application.DTOs.toolDto, ToolLendify.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ToolLendify.Application.DTOs.ToolDto, ToolLendify.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

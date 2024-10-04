@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ToolLendify.Application.DTOs;
 using ToolLendify.Domain.Entities;
@@ -15,27 +16,30 @@ namespace ToolLendify.Presentation.Controllers
 		#region fields
 		private readonly IMapper _mapper;
 		private readonly IToolRepository _toolRepo;
+		private readonly UserManager<User> _userManager;
 		#endregion
-		public toolController(IMapper mapper, IToolRepository toolRepo)
+		public toolController(IMapper mapper, IToolRepository toolRepo, UserManager<User> userManager)
 		{
 			_mapper = mapper;
 			_toolRepo = toolRepo;
+			_userManager = userManager;
 		}
 
 
 		[HttpGet]
-		public async Task<ActionResult<IEnumerable<toolDto>>> GetAllTools()
+		public async Task<ActionResult<IEnumerable<ToolDto>>> GetAllTools()
 		{
 			var toolsList = await _toolRepo.getAllTools();
 			if (toolsList.Count() == 0)
 			{
 				return NotFound();
 			}
-			var toolsDtoList = _mapper.Map<List<toolDto>>(toolsList);
+			var toolsDtoList = _mapper.Map<List<ToolDto>>(toolsList);
 			return Ok(toolsDtoList);
 		}
+		
 		[HttpPost]
-		public async Task<ActionResult<toolDto>> addTool([FromBody] toolDto addToolDto)
+		public async Task<ActionResult<ToolDto>> addTool([FromBody] ToolDto addToolDto)
 		{
 			if (!ModelState.IsValid)
 			{
@@ -43,6 +47,21 @@ namespace ToolLendify.Presentation.Controllers
 			}
 
 			Tool tool = _mapper.Map<Tool>(addToolDto);
+
+			var user = await _userManager.FindByIdAsync(addToolDto.OwnerID);
+			if (user == null)
+			{
+				return NotFound("user not found");
+			}
+			if(!await _userManager.IsInRoleAsync(user, "Owner"))
+			{
+				var result = await _userManager.AddToRoleAsync(user, "Owner");
+				if (!result.Succeeded)
+				{
+					return BadRequest("Failed to assign owner role");
+				}
+			}
+
 
 			var toolAdded = await _toolRepo.addTool(tool);
 
@@ -54,14 +73,16 @@ namespace ToolLendify.Presentation.Controllers
 			return Ok(addToolDto);
 		}
 		[HttpGet("{id}")]
-		public async Task<ActionResult<Tool>> GetToolById(int id)
+		public async Task<ActionResult<ToolDto>> GetToolById(int id)
 		{
 			var tool = await _toolRepo.GetToolById(id);
 			if (tool == null)
 			{
 				return NotFound();
 			}
-			return Ok(tool);
+			var ToolDto = _mapper.Map<Tool>(tool);
+
+			return Ok(ToolDto);
 		}
 		[HttpDelete("{id}")]
 		
@@ -77,7 +98,7 @@ namespace ToolLendify.Presentation.Controllers
 			return Ok("Tool deleted");
 		}
 		[HttpPatch]
-		public async Task<ActionResult<toolDto>> UpdateTool([FromRoute]int id, [FromBody] toolDto toolToEdit)
+		public async Task<ActionResult<ToolDto>> UpdateTool(int id, [FromBody] ToolDto toolToEdit)
 		{
 			var existingTool = await _toolRepo.GetToolById(id);
 			if (existingTool == null) { return NotFound(); }
@@ -97,13 +118,35 @@ namespace ToolLendify.Presentation.Controllers
 		}
 
 		[HttpGet("ownerTools")]
-		public async Task<ActionResult<IEnumerable<toolDto>>> GetOwnerTools([FromQuery]string id)
+		public async Task<ActionResult<IEnumerable<ToolDto>>> GetOwnerTools([FromQuery]string id)
 		{
 			var ownerTools = await _toolRepo.GetOwnerTools(id);
 			if(ownerTools.Count()==0) 
 			{ return NotFound(); }
-			_mapper.Map<List<toolDto>>(ownerTools);
+			_mapper.Map<List<ToolDto>>(ownerTools);
 			return Ok(ownerTools);
+		}
+		[HttpGet("availableTools")]
+		 public async Task<ActionResult<IEnumerable<ToolDto>>> GetAvailableTools()
+		{
+			var availableTools = await _toolRepo.GetAvailableTools();
+			if(availableTools.Count()==0)
+			{
+				return NotFound();
+			}
+			_mapper.Map<List<ToolDto>>(availableTools);
+			return Ok(availableTools);
+		}
+		[HttpGet("get-by-name/{name}")]
+		public async Task<ActionResult<IEnumerable<ToolDto>>> GetToolByName(string name)
+		{
+			var tool = await _toolRepo.GetToolByName(name);
+			if(tool.Count() == 0)
+			{
+				return NotFound();
+			}
+			var ToolDto = _mapper.Map<List<ToolDto>>(tool);
+			return Ok(ToolDto);
 		}
 	}
 }

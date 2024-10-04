@@ -19,12 +19,12 @@ namespace ToolLendify.Application.Automapper
 		{
 			//CreateMap<Source,destination>
 
-			CreateMap<Tool, toolDto>()
+			CreateMap<Tool, ToolDto>()
 				.ForMember(d => d.CategoryName, o => o.MapFrom(t => t.Category.Name))
-				.ForMember(d => d.ownerName, opt => opt.MapFrom(src => src.Owner.UserName));
+				.ForMember(d => d.OwnerID, opt => opt.MapFrom(src => src.Owner.UserName));
 
 
-			CreateMap<toolDto, Tool>()
+			CreateMap<ToolDto, Tool>()
 				.ForMember(t => t.CategoryID, opt => opt.Ignore()) //why here make id Ignore can you explain this for me
 				.ForMember(t => t.Category, opt => opt.Ignore()) //and here to 
 				.AfterMap((dto, tool) => {
@@ -33,8 +33,8 @@ namespace ToolLendify.Application.Automapper
 					}
 				});
 
-			CreateMap<categoryDto, Category>();
-			CreateMap<Category, categoryDto>();
+			CreateMap<CategoryDto, Category>();
+			CreateMap<Category, CategoryDto>();
 
 			CreateMap<Owner, OwnerDto>()
 				.ForMember(d => d.Id, o => o.MapFrom(s => s.Id))

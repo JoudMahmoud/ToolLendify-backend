@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ToolLendify.Application.DTOs
 {
-	public class toolDto
+	public class ToolDto
 	{
 		[Required]
 		public string Name { get; set; }
@@ -19,9 +19,7 @@ namespace ToolLendify.Application.DTOs
 		public string OwnerID { get; set; }
 		public string? CategoryName { get; set; }
 
-		public toolDto() {
-			
-		}
+		
 
 	}
 }

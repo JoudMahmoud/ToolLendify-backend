@@ -150,7 +150,10 @@
           "Microsoft.Extensions.Identity.Stores": "8.0.7"
         },
         "runtime": {
-          "ToolLendify.Domain.dll": {}
+          "ToolLendify.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

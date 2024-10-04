@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ToolLendify.Application.DTOs;
@@ -13,8 +12,9 @@ namespace ToolLendify.Presentation.Controllers
 	{
 		private readonly UserManager<User> _userManager;
 		private readonly IMapper _mapper;
+		
 
-		AddressController(UserManager<User> userManager, IMapper mapper)
+		public AddressController(UserManager<User> userManager, IMapper mapper)
 		{
 			_userManager = userManager;
 			_mapper = mapper;
