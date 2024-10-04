@@ -22,7 +22,7 @@ namespace ToolLendify.Presentation.Controllers
 
 
 		[HttpPost]
-		public async Task<ActionResult> CreateAddress(AddressDto updateAddress, string userId)
+		public async Task<ActionResult> UpdateAddress(AddressDto updateAddress, string userId)
 		{
 			if (!ModelState.IsValid)
 			{
