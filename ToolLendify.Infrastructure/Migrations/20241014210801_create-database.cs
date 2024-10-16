@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ToolLendify.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class createDatabase : Migration
+    public partial class createdatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -254,12 +254,19 @@ namespace ToolLendify.Infrastructure.Migrations
                     Model = table.Column<int>(type: "int", nullable: false),
                     PricePerDay = table.Column<int>(type: "int", nullable: false),
                     IsAvailable = table.Column<bool>(type: "bit", nullable: false),
+                    AddressId = table.Column<int>(type: "int", nullable: false),
                     OwnerID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CategoryID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Tools", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Tools_Address_AddressId",
+                        column: x => x.AddressId,
+                        principalTable: "Address",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Tools_AspNetUsers_OwnerID",
                         column: x => x.OwnerID,
@@ -439,6 +446,11 @@ namespace ToolLendify.Infrastructure.Migrations
                 name: "IX_Reviews_UserId",
                 table: "Reviews",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Tools_AddressId",
+                table: "Tools",
+                column: "AddressId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tools_CategoryID",

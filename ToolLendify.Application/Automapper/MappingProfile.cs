@@ -36,17 +36,18 @@ namespace ToolLendify.Application.Automapper
 			CreateMap<CategoryDto, Category>();
 			CreateMap<Category, CategoryDto>();
 
-			CreateMap<Owner, OwnerDto>()
+			CreateMap<Owner, UserDto>()
 				.ForMember(d => d.Id, o => o.MapFrom(s => s.Id))
 				.ForMember(d => d.Name, o => o.MapFrom(s => s.UserName))
 				.ForMember(d => d.ImageUrl, o => o.MapFrom(s => s.ImageUrl));
 			//Severity	Code	Description	Project	File	Line	Suppression State	Details	Error(active)  CS1061  'OwnerDto' does not contain a definition for 'Id' and no accessible extension method 'Id' accepting a first argument of type 'OwnerDto' could be found(are you missing a using directive or an assembly reference ?)	ToolLendify.Application E:\iti\0 - project\ToolLendify\ToolLendify - separate - projects\ToolLendify - Backend\ToolLendify.Application\Automapper\MappingProfile.cs 44
 
 
-			CreateMap<User, OwnerDto>()
+			CreateMap<User, UserDto>()
 				.ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.UserName));
 
 			CreateMap<AddressDto, Address>();
+			CreateMap<Address, AddressDto>();
 		}
 
 	}

@@ -1,26 +1,5 @@
 [
   {
-    "ContainingType": "ToolLendify.Presentation.Controllers.AddressController",
-    "Method": "CreateAddress",
-    "RelativePath": "api/Address",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "updateAddress",
-        "Type": "ToolLendify.Application.DTOs.AddressDto",
-        "IsRequired": true
-      },
-      {
-        "Name": "userId",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "ToolLendify.Presentation.Controllers.CategoryController",
     "Method": "GetAllCategories",
     "RelativePath": "api/Category",
@@ -50,7 +29,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[ToolLendify.Application.DTOs.OwnerDto, ToolLendify.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ToolLendify.Application.DTOs.UserDto, ToolLendify.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -76,7 +55,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[ToolLendify.Application.DTOs.OwnerDto, ToolLendify.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ToolLendify.Application.DTOs.UserDto, ToolLendify.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -276,6 +255,121 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "ToolLendify.Presentation.Controllers.UserProfileController",
+    "Method": "GetUserProfileInfo",
+    "RelativePath": "api/UserProfile",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ToolLendify.Presentation.Controllers.UserProfileController",
+    "Method": "UpdateAddress",
+    "RelativePath": "api/UserProfile/update-useraddress",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "updateAddress",
+        "Type": "ToolLendify.Application.DTOs.AddressDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ToolLendify.Presentation.Controllers.UserProfileController",
+    "Method": "UpdateUserEmail",
+    "RelativePath": "api/UserProfile/update-useremail",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ToolLendify.Presentation.Controllers.UserProfileController",
+    "Method": "updateUserImage",
+    "RelativePath": "api/UserProfile/update-userImage",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "imageUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ToolLendify.Presentation.Controllers.UserProfileController",
+    "Method": "UpdateUsername",
+    "RelativePath": "api/UserProfile/update-username",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ToolLendify.Presentation.Controllers.UserProfileController",
+    "Method": "UpdateUserPassword",
+    "RelativePath": "api/UserProfile/update-userpassword",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "updatePasswordDto",
+        "Type": "ToolLendify.Application.DTOs.UpdatePasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "ToolLendify.Presentation.Controllers.AccountController",

@@ -1,0 +1,102 @@
+[
+  {
+    "Name": "Hammer",
+    "Description": "Heavy-duty hammer",
+    "Image": "https://t4.ftcdn.net/jpg/03/15/23/45/360_F_315234595_cuRW9g5lNVpSmLPJUZO324IbFzzKgGF9.jpg",
+    "Model": 2022,
+    "PricePerDay": 10,
+    "IsAvailable": true,
+    "OwnerID": "57f589ed-7c93-49ce-b9b3-c7e9b99d2c5a",
+    "CategoryID": 1,
+    "Address": {
+      "StreetAddress": "123 Tool St",
+      "District": "Downtown",
+      "City": "Cairo",
+      "PostalCode": "12345",
+      "Country": "Egypt",
+      "Latitude": 30.0444,
+      "Longitude": 31.2357,
+      "Phone": "+20 100 000 0000"
+    }
+  },
+  {
+    "Name": "Drill",
+    "Description": "Electric drill",
+    "Image": "https://media.istockphoto.com/id/184294297/photo/cordless-yellow-power-drill-isolated-on-a-white-background.jpg?s=1024x1024&w=is&k=20&c=ne2fAy1vQi5FT0H8oEQ1czfWR5LZwAckopKuFAbS4UE=",
+    "Model": 2021,
+    "PricePerDay": 15,
+    "IsAvailable": true,
+    "OwnerID": "915ea192-36d3-4872-ba85-081388a1ef9f",
+    "CategoryID": 2,
+    "Address": {
+      "StreetAddress": "456 Power Ave",
+      "District": "Industrial Area",
+      "City": "Alexandria",
+      "PostalCode": "54321",
+      "Country": "Egypt",
+      "Latitude": 31.2001,
+      "Longitude": 29.9187,
+      "Phone": "+20 110 000 0000"
+    }
+  },
+  {
+    "Name": "Screwdriver",
+    "Description": "Flathead screwdriver",
+    "Image": "https://media.istockphoto.com/id/466428630/photo/screwdriver.jpg?s=2048x2048&w=is&k=20&c=4eW2HcRS755P00LPzwQYBHBAu-7qdA7WRa_b083L4WE=",
+    "Model": 2023,
+    "PricePerDay": 5,
+    "IsAvailable": true,
+    "OwnerID": "57f589ed-7c93-49ce-b9b3-c7e9b99d2c5a",
+    "CategoryID": 1,
+    "Address": {
+      "StreetAddress": "789 Tool Lane",
+      "District": "Midtown",
+      "City": "Giza",
+      "PostalCode": "67890",
+      "Country": "Egypt",
+      "Latitude": 30.0131,
+      "Longitude": 31.2089,
+      "Phone": "+20 120 000 0000"
+    }
+  },
+  {
+    "Name": "Wrench",
+    "Description": "Adjustable wrench",
+    "Image": "https://media.istockphoto.com/id/845292864/vector/wrench-icon.jpg?s=1024x1024&w=is&k=20&c=GjcE3Avd0N2NSMuPpMl1Y2eCCjxOlafDW786t8Pb_Bs=",
+    "Model": 2020,
+    "PricePerDay": 8,
+    "IsAvailable": true,
+    "OwnerID": "915ea192-36d3-4872-ba85-081388a1ef9f",
+    "CategoryID": 3,
+    "Address": {
+      "StreetAddress": "987 Wrench Blvd",
+      "District": "Tools District",
+      "City": "Sharm El Sheikh",
+      "PostalCode": "98765",
+      "Country": "Egypt",
+      "Latitude": 27.9158,
+      "Longitude": 34.3299,
+      "Phone": "+20 130 000 0000"
+    }
+  },
+  {
+    "Name": "Saw",
+    "Description": "Hand saw for cutting wood",
+    "Image": "https://media.istockphoto.com/id/173633236/photo/hand-saw.jpg?s=2048x2048&w=is&k=20&c=QRAgktvNHSI_EctTIpt4KyVUUTn28CTJplTuUfUrBRM=",
+    "Model": 2019,
+    "PricePerDay": 12,
+    "IsAvailable": true,
+    "OwnerID": "ddc6c9cf-cdeb-472e-bb14-344884f4ca05",
+    "CategoryID": 2,
+    "Address": {
+      "StreetAddress": "654 Wood Cutter St",
+      "District": "Carpentry Area",
+      "City": "Luxor",
+      "PostalCode": "43210",
+      "Country": "Egypt",
+      "Latitude": 25.6872,
+      "Longitude": 32.6396,
+      "Phone": "+20 140 000 0000"
+    }
+  }
+]

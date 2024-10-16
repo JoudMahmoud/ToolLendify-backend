@@ -12,8 +12,8 @@ using ToolLendify.Infrastructure.DbContext;
 namespace ToolLendify.Infrastructure.Migrations
 {
     [DbContext(typeof(ToolLendifyDbContext))]
-    [Migration("20241003235950_createDatabase")]
-    partial class createDatabase
+    [Migration("20241014210801_create-database")]
+    partial class createdatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -364,6 +364,9 @@ namespace ToolLendify.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("AddressId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("CategoryID")
                         .HasColumnType("int");
 
@@ -391,6 +394,8 @@ namespace ToolLendify.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AddressId");
 
                     b.HasIndex("CategoryID");
 
@@ -620,6 +625,12 @@ namespace ToolLendify.Infrastructure.Migrations
 
             modelBuilder.Entity("ToolLendify.Domain.Entities.Tool", b =>
                 {
+                    b.HasOne("ToolLendify.Domain.Entities.Address", "Address")
+                        .WithMany()
+                        .HasForeignKey("AddressId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("ToolLendify.Domain.Entities.Category", "Category")
                         .WithMany("Tools")
                         .HasForeignKey("CategoryID");
@@ -629,6 +640,8 @@ namespace ToolLendify.Infrastructure.Migrations
                         .HasForeignKey("OwnerID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Address");
 
                     b.Navigation("Category");
 

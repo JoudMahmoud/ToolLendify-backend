@@ -27,6 +27,10 @@ namespace ToolLendify.Infrastructure.DbContext
 			//to make email unique
 			builder.Entity<User>()
 				.HasIndex(u => u.Email).IsUnique();
+
+			builder.Entity<Payment>()
+				.Property(p => p.AmountPaid)
+				.HasColumnType("decimal(18,2)");
 		}
 	}
 }

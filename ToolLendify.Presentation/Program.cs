@@ -2,10 +2,12 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using ToolLendify.Application.Automapper;
 using ToolLendify.Application.Services;
+using ToolLendify.Application.Services.Validators;
 using ToolLendify.Domain.Entities;
 using ToolLendify.Domain.Interfaces;
 using ToolLendify.Infrastructure.DataSeed;
@@ -19,7 +21,7 @@ namespace ToolLendify.Presentation
 		public static async Task Main(string[] args)
 		{
 			var builder = WebApplication.CreateBuilder(args);
-
+			
 			#region Configure Services
 
 			// Add services to the container
@@ -29,7 +31,6 @@ namespace ToolLendify.Presentation
 
 			//register AutoMapper
 			builder.Services.AddAutoMapper(typeof(MappingProfile));
-			//builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 			// Configure DbContext
 			builder.Services.AddDbContext<ToolLendifyDbContext>(options =>
@@ -43,6 +44,8 @@ namespace ToolLendify.Presentation
 			// Register Identity services
 			builder.Services.AddIdentity<User, IdentityRole>(options =>
 			{
+				options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ";
+
 				// Require confirmed email account for sign-in
 				options.SignIn.RequireConfirmedAccount = false;
 
@@ -53,10 +56,9 @@ namespace ToolLendify.Presentation
 				options.Password.RequiredLength = 8;
 				options.Password.RequiredUniqueChars = 1;
 			})
+			.AddUserValidator<CustomUserValidator<User>>()
 			.AddEntityFrameworkStores<ToolLendifyDbContext>()
 			.AddDefaultTokenProviders();
-
-
 
 
 			// Configure Authentication
@@ -83,6 +85,11 @@ namespace ToolLendify.Presentation
 			// Register custom services
 			builder.Services.AddScoped<RoleService>();
 			builder.Services.AddScoped<IToolRepository, ToolRepository>();
+			builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+			builder.Services.AddScoped<IOwnerRepository, OwnerRepository>();
+
+			//builder.Services.AddScoped<DataSeeder>();
+
 
 			builder.Services.AddCors(options =>
 			{
@@ -96,20 +103,52 @@ namespace ToolLendify.Presentation
 			});
 
 			#endregion
-
+			
 			var app = builder.Build();
 
 			#region Seed Data
 
-			// Seed roles
+			// Seed roles and data
+			#region Seed Data
+
+			// Seed roles and data
 			using (var scope = app.Services.CreateScope())
 			{
 				var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-				await RoleSeeder.SeedRolesAsync(roleManager);
+				var loggerFactory = scope.ServiceProvider.GetRequiredService<ILoggerFactory>(); // Define loggerFactory here
+				var logger = loggerFactory.CreateLogger<Program>(); // Create logger instance
+
+				try
+				{
+					await RoleSeeder.SeedRolesAsync(roleManager);
+				}
+				catch (Exception ex)
+				{
+					logger.LogError(ex, "Error occurred while seeding roles."); // Use the logger here
+				}
+
+				// Get required services for database migration and data seeding
+				var _dbContext = scope.ServiceProvider.GetRequiredService<ToolLendifyDbContext>();
+
+				try
+				{
+					// Migrate the database
+					await _dbContext.Database.MigrateAsync(); // Update database
+
+					// Seed additional data (tools, categories, owners, etc.)
+					await ToolLendifyContextSeed.seedAsync(_dbContext); // Data Seeding
+				}
+				catch (Exception ex)
+				{
+					logger.LogError(ex, "An error has occurred during apply the migration."); // Log using the same logger
+				}
 			}
 
 			#endregion
-			
+
+
+			#endregion
+
 			#region Configure Middleware
 
 			// Configure the HTTP request pipeline

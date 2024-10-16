@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ToolLendify.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e9ea22fe166f0c9a10161e5725073910250103a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7aad6fe47abb5aace57fe8dcfe16553d22938d2f")]
 [assembly: System.Reflection.AssemblyProductAttribute("ToolLendify.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ToolLendify.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

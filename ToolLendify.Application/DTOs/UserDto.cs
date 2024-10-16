@@ -7,15 +7,11 @@ using ToolLendify.Domain.Entities;
 
 namespace ToolLendify.Application.DTOs
 {
-	public class OwnerDto
+	public class UserDto
 	{
 		public string Id { get; set; }
 		public string Name { get; set; }
 		public string ImageUrl { get; set; }
-		public Address Address { get; set; }
-		public double Latitude { get; set; }
-		public double Longitude { get; set; }
-
-
+		public AddressDto Address { get; set; }
 	}
 }

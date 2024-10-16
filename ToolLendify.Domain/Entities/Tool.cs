@@ -16,6 +16,7 @@ namespace ToolLendify.Domain.Entities
 		public int Model { get; set; }
 		public int PricePerDay { get; set; }
 		public bool IsAvailable { get; set; }
+		public Address Address { get; set; }
 		[ForeignKey("Owner")]
 		public string OwnerID { get; set; }
 		[Required]

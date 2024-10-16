@@ -1,0 +1,86 @@
+[
+  {
+    "UserName": "Joud",
+    "Email": "joud@gmail.com",
+    "PhoneNumber": "012-345-6789",
+    "ImageUrl": "https://example.com/images/joud.png",
+    "Address": {
+      "StreetAddress": "1 Al-Maadi St",
+      "District": "Al-Maadi",
+      "City": "Cairo",
+      "PostalCode": "11435",
+      "Country": "Egypt",
+      "Phone": "012-345-6789"
+    }
+  },
+  {
+    "UserName": "Aser",
+    "Email": "aser@gmail.com",
+    "PhoneNumber": "012-987-6543",
+    "ImageUrl": "https://example.com/images/aser.png",
+    "Address": {
+      "StreetAddress": "45 Tahrir St",
+      "District": "Downtown",
+      "City": "Cairo",
+      "PostalCode": "11511",
+      "Country": "Egypt",
+      "Phone": "012-987-6543"
+    }
+  },
+  {
+    "UserName": "Ahmed",
+    "Email": "ahmed@gmail.com",
+    "PhoneNumber": "010-123-4567",
+    "ImageUrl": "https://example.com/images/ahmed.png",
+    "Address": {
+      "StreetAddress": "89 Nasr City St",
+      "District": "Nasr City",
+      "City": "Cairo",
+      "PostalCode": "11371",
+      "Country": "Egypt",
+      "Phone": "010-123-4567"
+    }
+  },
+  {
+    "UserName": "Mahmoud",
+    "Email": "mahmoud@gmail.com",
+    "PhoneNumber": "011-234-5678",
+    "ImageUrl": "https://example.com/images/mahmoud.png",
+    "Address": {
+      "StreetAddress": "23 Mohandessin St",
+      "District": "Mohandessin",
+      "City": "Giza",
+      "PostalCode": "12655",
+      "Country": "Egypt",
+      "Phone": "011-234-5678"
+    }
+  },
+  {
+    "UserName": "Anas",
+    "Email": "anas@gmail.com",
+    "PhoneNumber": "010-876-5432",
+    "ImageUrl": "https://example.com/images/anas.png",
+    "Address": {
+      "StreetAddress": "67 Heliopolis St",
+      "District": "Heliopolis",
+      "City": "Cairo",
+      "PostalCode": "11361",
+      "Country": "Egypt",
+      "Phone": "010-876-5432"
+    }
+  },
+  {
+    "UserName": "Jana",
+    "Email": "jana@gmail.com",
+    "PhoneNumber": "012-345-0987",
+    "ImageUrl": "https://example.com/images/jana.png",
+    "Address": {
+      "StreetAddress": "99 Zamalek St",
+      "District": "Zamalek",
+      "City": "Cairo",
+      "PostalCode": "11211",
+      "Country": "Egypt",
+      "Phone": "012-345-0987"
+    }
+  }
+]

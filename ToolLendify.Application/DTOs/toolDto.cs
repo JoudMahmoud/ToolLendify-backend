@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ToolLendify.Domain.Entities;
 
 namespace ToolLendify.Application.DTOs
 {
@@ -16,6 +17,7 @@ namespace ToolLendify.Application.DTOs
 		public int Model { get; set; }
 		public int PricePerDay { get; set; }
 		public bool IsAvailable { get; set; }
+		public AddressDto Address { get; set; }
 		public string OwnerID { get; set; }
 		public string? CategoryName { get; set; }
 
